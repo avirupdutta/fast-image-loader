@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Fast Image Loader</title>
+  <style>
+    *,
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .blur {
+      filter: blur(10px);
+      transition: all 1s;
+    }
+
+    .noblur {
+      transition: all 5s;
+    }
+  </style>
+</head>
+
+<body>
+  <img
+    src="https://pixabay.com/get/52e3d24a4857ad14f1dc84608229347b103bd7e05b4c704c732872d5904ac358/mugunghwa-4379251_640.jpg"
+    class="blur" id="image" width="100%" alt="small">
+
+  <script>
+    var largeImageURL = "https://pixabay.com/get/52e3d24a4857ad14ea9d857ec22d33771037c3e45657764074287cd29e/mugunghwa-4379251.jpg";
+
+    var img = document.getElementById("image");
+    var bigImage = document.createElement("img");
+
+    bigImage.onload = function () {
+      img.src = this.src;
+      img.className = "noblur"
+    }
+    setTimeout(function () {
+      bigImage.src = largeImageURL;
+    }, 1000);
+
+  </script>
+
+</body>
+
+</html>
